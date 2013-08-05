@@ -57,7 +57,7 @@ module Technoweenie # :nodoc:
             path_id = attachment_path_id
             if path_id.is_a?(Integer)
               # Primary key is an integer. Split it after padding it with 0.
-              ("%08d" % path_id).scan(/..../) + args
+              ("%012d" % path_id).scan(/..../) + args
             else
               # Primary key is a String. Hash it, then split it into 4 components.
               hash = Digest::SHA512.hexdigest(path_id.to_s)
